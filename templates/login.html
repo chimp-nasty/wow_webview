@@ -1,0 +1,44 @@
+<div class="container">
+    <form onsubmit="event.preventDefault(); window.withLock(() => {
+        const email = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+
+        return window.login(email, password);
+        }, window.globalLock);"
+    >
+        <h1>Login</h1>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" required placeholder="you@example.com" />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" required placeholder="•••••••••••••••" />
+
+        <button type="submit">
+            login
+        </button>
+    </form>
+</div>
+
+<style>
+    .container form{
+        max-width: 400px;
+        padding: 1rem;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .container label {
+        font-size: 1rem;
+    }
+    .container input {   
+        padding: 0.5rem;
+        border: 2px solid #ccc;
+        border-radius: 1rem;
+        background-color: rgb(50, 50, 50);
+        color: #4AC5DA;
+    }
+</style>
+
+
